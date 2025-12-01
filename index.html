@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShriVidya शुद्ध–वाणी Live Quiz System</title>
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style/main.css" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Meta Information -->
+  <meta name="description" content="ShriVidya शुद्ध–वाणी Live Quiz System - एक त्रिभाषीय संस्कृत आधारित क्विज़ प्लेटफॉर्म, दृष्टिबाधित विद्यार्थियों हेतु भी उपयुक्त।">
+</head>
+
+<body>
+  <header class="app-header">
+    <h1 id="system-title">🔱 ShriVidya शुद्ध–वाणी Live Quiz System 🔱</h1>
+    <p class="subtitle">संयोजक: ShriVidya – श्रीविद्या</p>
+  </header>
+
+  <main id="main-area">
+    <!-- Language Selection -->
+    <section id="language-selector">
+      <h2>🌐 भाषा चुनें (Select Language)</h2>
+      <button class="lang-btn" data-lang="hi">हिंदी</button>
+      <button class="lang-btn" data-lang="en">English</button>
+      <button class="lang-btn" data-lang="sa">संस्कृत</button>
+    </section>
+
+    <!-- Quiz Container -->
+    <section id="quiz-container" class="hidden">
+      <div id="question-box">
+        <h2 id="question-text">यहाँ प्रश्न दिखाई देगा...</h2>
+      </div>
+      <div id="options-box"></div>
+      <button id="next-btn">अगला प्रश्न ➡️</button>
+    </section>
+
+    <!-- Result Section -->
+    <section id="result-container" class="hidden">
+      <h2>क्विज़ समाप्त ✅</h2>
+      <p id="final-score"></p>
+      <div id="explanation-box"></div>
+      <button id="restart-btn">🔁 पुनः प्रयास करें</button>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>© ShriVidya शुद्ध–वाणी Live Quiz System | संयोजक: ShriVidya – श्रीविद्या</p>
+    <p><a href="https://www.facebook.com/share/17iYe2Y9ga/" target="_blank">📘 Facebook लिंक</a></p>
+  </footer>
+
+  <!-- Script Placeholders (Later stages will add scripts here) -->
+  <script src="scripts/main.js"></script>
+  <script src="scripts/voiceEngine.js"></script>
+</body>
+</html>
