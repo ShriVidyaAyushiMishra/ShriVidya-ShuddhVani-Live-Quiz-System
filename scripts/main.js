@@ -154,6 +154,53 @@ function showResults() {
     explanationBox.appendChild(div);
   });
 }
+/* ============================================================
+   🔗 UI Extension Code — IQES Integration Bridge (Hybrid v4.0)
+   ------------------------------------------------------------
+   यह कोड main.js और aiExplanation.js को आपस में जोड़ता है।
+   जब क्विज़ समाप्त होता है, यह AI Explanation Engine को
+   ‘quizCompleted’ इवेंट भेजता है ताकि व्याख्या दिखाई जाए।
+   ============================================================ */
+
+function triggerIQES() {
+  try {
+    const questionList = quizData.map(q => q.question);
+    const userAnswers = []; // यह आप आगे वास्तविक यूज़र उत्तर से जोड़ेंगी
+    const correctAnswers = quizData.map(q => q.options[q.correct]);
+
+    // Custom Event भेजना
+    const event = new CustomEvent("quizCompleted", {
+      detail: { questions: questionList, userAnswers, correctAnswers }
+    });
+    document.dispatchEvent(event);
+  } catch (err) {
+    console.error("IQES Trigger Error:", err);
+  }
+}
+
+// 🧠 अब इसे showResults() में कॉल करें:
+function showResults() {
+  quizContainer.classList.add("hidden");
+  resultContainer.classList.remove("hidden");
+
+  const totalQuestions = quizData.length;
+  finalScore.textContent = `आपका स्कोर: ${score} / ${totalQuestions * 4}`;
+
+  explanationBox.innerHTML = "";
+  quizData.forEach((q, i) => {
+    const div = document.createElement("div");
+    div.classList.add("explanation-item");
+    div.innerHTML = `
+      <h3>प्रश्न ${i + 1}: ${q.question}</h3>
+      <p><b>सही उत्तर:</b> ${q.options[q.correct]}</p>
+      <hr/>
+    `;
+    explanationBox.appendChild(div);
+  });
+
+  // 🧩 अब यह लाइन जोड़ें
+  triggerIQES();
+}
 
 /* ========== 9️⃣ पुनः प्रारंभ ========== */
 restartBtn.addEventListener("click", () => {
